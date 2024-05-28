@@ -3,9 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista;
+import javax.swing.table.DefaultTableModel;
 
-
-
+/**
+ *
+ * @author Joan Miam Chan
+ */
 public class VentanaRegistrarCliente extends javax.swing.JFrame {
 
     /**
@@ -13,6 +16,20 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
      */
     public VentanaRegistrarCliente() {
         initComponents();
+        // Inicialización del modelo de la tabla con columnas definidas
+    modeloTabla = new DefaultTableModel();
+    modeloTabla.addColumn("ID");
+    modeloTabla.addColumn("Nombres");
+    modeloTabla.addColumn("Apellidos");
+    modeloTabla.addColumn("Correo");
+    modeloTabla.addColumn("Fecha Nac.");
+    modeloTabla.addColumn("Teléfono");
+    modeloTabla.addColumn("Estatura");
+    modeloTabla.addColumn("Peso");
+    // Añadir más columnas según sea necesario
+
+    TablaClientes.setModel(modeloTabla);
+    // Resto de la configuración de initComponents
     }
 
     /**
@@ -29,26 +46,30 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
         NombresMsj = new javax.swing.JLabel();
         ApellidosMsj = new javax.swing.JLabel();
         BotonTomarFoto = new javax.swing.JButton();
-        GuardarNacimiento = new javax.swing.JTextField();
+        txtDiaNacimiento = new javax.swing.JTextField();
         NacimientoMsj = new javax.swing.JLabel();
-        GuardarTelefono = new javax.swing.JTextField();
-        GuardarEstatura = new javax.swing.JTextField();
-        GuardarPeso = new javax.swing.JTextField();
-        GuardarOtros = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtEstatura = new javax.swing.JTextField();
+        txtPeso = new javax.swing.JTextField();
+        txtOtros = new javax.swing.JTextField();
         TelefonoMsj = new javax.swing.JLabel();
         EstaturaMsj = new javax.swing.JLabel();
         PesoMsj = new javax.swing.JLabel();
         OtrosMsj = new javax.swing.JLabel();
         TelefonoMsj1 = new javax.swing.JLabel();
         OtrosMsj1 = new javax.swing.JLabel();
-        GuardarOtros1 = new javax.swing.JTextField();
-        GuardarOtros2 = new javax.swing.JTextField();
-        GuardarOtros3 = new javax.swing.JTextField();
-        GuardarOtros4 = new javax.swing.JTextField();
+        txtNombres = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtSexo = new javax.swing.JTextField();
         BotonAgreHuella = new javax.swing.JButton();
         BotonSalir = new javax.swing.JButton();
-        BotonGuardar = new javax.swing.JButton();
+        BtnRegistrar = new javax.swing.JButton();
+        txtMesNacimiento = new javax.swing.JTextField();
+        txtAnioNacimiento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaClientes = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -63,36 +84,36 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
 
         BotonTomarFoto.setText("FOTO");
 
-        GuardarNacimiento.addActionListener(new java.awt.event.ActionListener() {
+        txtDiaNacimiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarNacimientoActionPerformed(evt);
+                txtDiaNacimientoActionPerformed(evt);
             }
         });
 
         NacimientoMsj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         NacimientoMsj.setText("Nacimiento:");
 
-        GuardarTelefono.addActionListener(new java.awt.event.ActionListener() {
+        txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarTelefonoActionPerformed(evt);
+                txtTelefonoActionPerformed(evt);
             }
         });
 
-        GuardarEstatura.addActionListener(new java.awt.event.ActionListener() {
+        txtEstatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarEstaturaActionPerformed(evt);
+                txtEstaturaActionPerformed(evt);
             }
         });
 
-        GuardarPeso.addActionListener(new java.awt.event.ActionListener() {
+        txtPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarPesoActionPerformed(evt);
+                txtPesoActionPerformed(evt);
             }
         });
 
-        GuardarOtros.addActionListener(new java.awt.event.ActionListener() {
+        txtOtros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarOtrosActionPerformed(evt);
+                txtOtrosActionPerformed(evt);
             }
         });
 
@@ -114,27 +135,27 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
         OtrosMsj1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OtrosMsj1.setText("Sexo:");
 
-        GuardarOtros1.addActionListener(new java.awt.event.ActionListener() {
+        txtNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarOtros1ActionPerformed(evt);
+                txtNombresActionPerformed(evt);
             }
         });
 
-        GuardarOtros2.addActionListener(new java.awt.event.ActionListener() {
+        txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarOtros2ActionPerformed(evt);
+                txtApellidosActionPerformed(evt);
             }
         });
 
-        GuardarOtros3.addActionListener(new java.awt.event.ActionListener() {
+        txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarOtros3ActionPerformed(evt);
+                txtCorreoActionPerformed(evt);
             }
         });
 
-        GuardarOtros4.addActionListener(new java.awt.event.ActionListener() {
+        txtSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarOtros4ActionPerformed(evt);
+                txtSexoActionPerformed(evt);
             }
         });
 
@@ -147,7 +168,7 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
             }
         });
 
-        BotonGuardar.setText("GUARDAR");
+        BtnRegistrar.setText("REGISTRAR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -169,23 +190,27 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(GuardarPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GuardarOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GuardarEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GuardarOtros1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GuardarOtros3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GuardarOtros4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 597, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(GuardarOtros2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(GuardarTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BotonAgreHuella, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(GuardarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtDiaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAnioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(BotonTomarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(16, 16, 16))))
@@ -193,7 +218,7 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(BotonSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonGuardar, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(BtnRegistrar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -202,44 +227,46 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(NombresMsj)
-                    .addComponent(GuardarOtros1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ApellidosMsj)
-                    .addComponent(GuardarOtros2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(NacimientoMsj)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(GuardarNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BotonTomarFoto)))
+                        .addComponent(txtDiaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BotonTomarFoto)
+                        .addComponent(txtMesNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtAnioNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TelefonoMsj)
-                    .addComponent(GuardarTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonAgreHuella))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TelefonoMsj1)
-                    .addComponent(GuardarOtros3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OtrosMsj1)
-                    .addComponent(GuardarOtros4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EstaturaMsj)
-                    .addComponent(GuardarEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PesoMsj)
-                    .addComponent(GuardarPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(GuardarOtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtOtros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(OtrosMsj))
                 .addGap(16, 16, 16)
-                .addComponent(BotonGuardar)
+                .addComponent(BtnRegistrar)
                 .addGap(27, 27, 27)
                 .addComponent(BotonSalir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -247,15 +274,31 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
 
         PestañaEditarClientes.addTab("Agregar Cliente", jPanel1);
 
+        TablaClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Nombe", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaClientes);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 937, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 937, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 538, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 61, Short.MAX_VALUE))
         );
 
         PestañaEditarClientes.addTab("Clientes", jPanel2);
@@ -282,41 +325,41 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void GuardarEstaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEstaturaActionPerformed
+    private void txtEstaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEstaturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarEstaturaActionPerformed
+    }//GEN-LAST:event_txtEstaturaActionPerformed
 
-    private void GuardarNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarNacimientoActionPerformed
+    private void txtDiaNacimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaNacimientoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarNacimientoActionPerformed
+    }//GEN-LAST:event_txtDiaNacimientoActionPerformed
 
-    private void GuardarOtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarOtrosActionPerformed
+    private void txtOtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarOtrosActionPerformed
+    }//GEN-LAST:event_txtOtrosActionPerformed
 
-    private void GuardarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarTelefonoActionPerformed
+    private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarTelefonoActionPerformed
+    }//GEN-LAST:event_txtTelefonoActionPerformed
 
-    private void GuardarPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarPesoActionPerformed
+    private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarPesoActionPerformed
+    }//GEN-LAST:event_txtPesoActionPerformed
 
-    private void GuardarOtros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarOtros1ActionPerformed
+    private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarOtros1ActionPerformed
+    }//GEN-LAST:event_txtNombresActionPerformed
 
-    private void GuardarOtros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarOtros2ActionPerformed
+    private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarOtros2ActionPerformed
+    }//GEN-LAST:event_txtApellidosActionPerformed
 
-    private void GuardarOtros3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarOtros3ActionPerformed
+    private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarOtros3ActionPerformed
+    }//GEN-LAST:event_txtCorreoActionPerformed
 
-    private void GuardarOtros4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarOtros4ActionPerformed
+    private void txtSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSexoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_GuardarOtros4ActionPerformed
+    }//GEN-LAST:event_txtSexoActionPerformed
 
     private void BotonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirActionPerformed
         this.dispose();
@@ -356,29 +399,24 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
             }
         });
     }
+    // Añadir esta variable en la sección de declaración de variables
+     private DefaultTableModel modeloTabla;
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ApellidosMsj;
-    private javax.swing.JButton BotonAgreHuella;
-    private javax.swing.JButton BotonGuardar;
+    public javax.swing.JButton BotonAgreHuella;
     private javax.swing.JButton BotonSalir;
-    private javax.swing.JButton BotonTomarFoto;
+    public javax.swing.JButton BotonTomarFoto;
+    public javax.swing.JButton BtnRegistrar;
     private javax.swing.JLabel EstaturaMsj;
-    private javax.swing.JTextField GuardarEstatura;
-    private javax.swing.JTextField GuardarNacimiento;
-    private javax.swing.JTextField GuardarOtros;
-    private javax.swing.JTextField GuardarOtros1;
-    private javax.swing.JTextField GuardarOtros2;
-    private javax.swing.JTextField GuardarOtros3;
-    private javax.swing.JTextField GuardarOtros4;
-    private javax.swing.JTextField GuardarPeso;
-    private javax.swing.JTextField GuardarTelefono;
     private javax.swing.JLabel NacimientoMsj;
     private javax.swing.JLabel NombresMsj;
     private javax.swing.JLabel OtrosMsj;
     private javax.swing.JLabel OtrosMsj1;
     private javax.swing.JLabel PesoMsj;
     private javax.swing.JTabbedPane PestañaEditarClientes;
+    public javax.swing.JTable TablaClientes;
     private javax.swing.JLabel TelefonoMsj;
     private javax.swing.JLabel TelefonoMsj1;
     private javax.swing.JMenu jMenu1;
@@ -386,5 +424,17 @@ public class VentanaRegistrarCliente extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTextField txtAnioNacimiento;
+    public javax.swing.JTextField txtApellidos;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtDiaNacimiento;
+    public javax.swing.JTextField txtEstatura;
+    public javax.swing.JTextField txtMesNacimiento;
+    public javax.swing.JTextField txtNombres;
+    public javax.swing.JTextField txtOtros;
+    public javax.swing.JTextField txtPeso;
+    public javax.swing.JTextField txtSexo;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
