@@ -8,6 +8,9 @@ public abstract class Membresia {
     private LocalDate fechaInicio;
     private LocalDate fechaExpiracion;
     private String estado;
+    private double precio;
+
+    // Getters y setters
 
     public String getNombreCliente() {
         return nombreCliente;
@@ -49,5 +52,11 @@ public abstract class Membresia {
         this.estado = estado;
     }
 
-    public abstract double getPrecio();
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }

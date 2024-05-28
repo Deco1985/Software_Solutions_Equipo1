@@ -1,8 +1,8 @@
 package modelo;
 
 public class MembresiaMes extends Membresia {
-    @Override
-    public double getPrecio() {
-        return 150.0;
+    public MembresiaMes() {
+        super();
+        setPrecio(150.0); 
     }
 }
